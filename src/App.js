@@ -1,15 +1,17 @@
 import React from 'react';
 import AddForm from './components/AddForm';
 import Filter from './components/Filter';
-import TaskList from './components/TasksList';
+import TasksList from './components/TasksList';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <AddForm />
       <Filter />
-      <TaskList />
-    </div>
+      <TasksList />
+    </Provider>
   );
 }
 

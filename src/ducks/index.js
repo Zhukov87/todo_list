@@ -48,7 +48,10 @@ export default (state = initialState, { type, payload }) => {
         }
 
         case types.FILTER_CHANGE: {
-            return state;
+            return {
+                ...state,
+                filter: payload.filter
+            }
         }
 
         default: {

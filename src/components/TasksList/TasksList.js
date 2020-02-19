@@ -1,9 +1,16 @@
 import React from 'react';
 import Task from '../Task';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { actions } from '../../ducks';
 
 const TasksList = () => {
     const tasks = useSelector(state => state.tasks);
+
+    const dispatch = useDispatch();
+
+    const handleRemove = (id) => {
+        dispatch(actions.removeTask(id));
+    }
 
     const renderList = () => {
         return (
@@ -14,7 +21,8 @@ const TasksList = () => {
                                 title={task.title} 
                                 date={task.creationDate} 
                                 id={task.id}
-                                isOpen={task.isOpen} 
+                                isOpen={task.isOpen}
+                                remove={handleRemove} 
                             />
                 })}
             </ul>

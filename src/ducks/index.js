@@ -31,7 +31,11 @@ export default (state = initialState, { type, payload }) => {
         }
       
         case types.REMOVE_TASK: {
-            return state;
+            const filteredTasks = state.tasks.filter(task => task.id !== payload.id);
+            return {
+                ...state,
+                tasks: filteredTasks
+            };
         }
 
         case types.FILTER_CHANGE: {

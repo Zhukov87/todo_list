@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Task = (props) => {
-    const {title, date, isOpen} = props;
+    const {title, date, id, isOpen, remove} = props;
     
     return (
         <li>
@@ -14,7 +14,7 @@ const Task = (props) => {
                 <h5>{title}</h5>
                 <p>{date}</p>
                 <button >Edit</button>
-                <button >Remove</button>
+                <button onClick={() => remove(id)} >Remove</button>
         </li>
     );
 }

@@ -20,7 +20,10 @@ export const initialState = {
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case types.ADD_TASK: {
-            return state;
+            return {
+                ...state,
+                tasks: [...state.tasks, payload.task]
+            };
         }
 
         case types.EDIT_TASK: {

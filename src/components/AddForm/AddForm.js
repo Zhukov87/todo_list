@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { actions } from '../../ducks';
+import { useDispatch } from 'react-redux';
 
 const AddForm = () => {
     const [title, setTitle] = useState('');
+    const dispatch = useDispatch();
 
     const handleAddTask = (e) => {
-        e.preventDefaul();
+        e.preventDefault();
+        dispatch(actions.addTask({title}));
+        setTitle('');
     }
 
     return (

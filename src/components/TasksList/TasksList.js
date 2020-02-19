@@ -12,6 +12,10 @@ const TasksList = () => {
         dispatch(actions.removeTask(id));
     }
 
+    const handleEdit = (task) => {
+        dispatch(actions.editTask(task));
+    }
+
     const renderList = () => {
         return (
             <ul>
@@ -21,8 +25,9 @@ const TasksList = () => {
                                 title={task.title} 
                                 date={task.creationDate} 
                                 id={task.id}
-                                isOpen={task.isOpen}
+                                isOpen={task.isOpen} 
                                 remove={handleRemove} 
+                                edit={handleEdit}
                             />
                 })}
             </ul>

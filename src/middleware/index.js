@@ -6,6 +6,11 @@ export default store => next => action => {
         action.payload.task.creationDate = creationDate.getFullYear() + '-' + ('0' + (creationDate.getMonth() + 1)).slice(-2) + '-' + ('0' + creationDate.getDate()).slice(-2);
     }
 
+    if(action.type === 'EDIT_TASK') {
+      const creationDate = new Date();
+      action.payload.task.creationDate = creationDate.getFullYear() + '-' + ('0' + (creationDate.getMonth() + 1)).slice(-2) + '-' + ('0' + creationDate.getDate()).slice(-2);
+  }
+
     next(action);
 }
 

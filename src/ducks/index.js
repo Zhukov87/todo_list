@@ -27,7 +27,16 @@ export default (state = initialState, { type, payload }) => {
         }
 
         case types.EDIT_TASK: {
-            return state;
+            const changedTasks = state.tasks.map(task => {
+                if(task.id === payload.task.id) {
+                    return payload.task;
+                }
+                return task;
+            })
+            return {
+                ...state,
+                tasks: changedTasks
+            };
         }
       
         case types.REMOVE_TASK: {

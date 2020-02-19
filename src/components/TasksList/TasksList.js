@@ -2,9 +2,10 @@ import React from 'react';
 import Task from '../Task';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../../ducks';
+import { filteredTasksSelector } from '../../selectors';
 
 const TasksList = () => {
-    const tasks = useSelector(state => state.tasks);
+    const tasks = useSelector(filteredTasksSelector);
 
     const dispatch = useDispatch();
 
